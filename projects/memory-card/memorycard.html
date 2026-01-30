@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memory Cards</title>
+
+    <link rel="stylesheet" href="/static/css/theme.css" />
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <link rel="stylesheet" href="/static/css/responsive.css" />
+    <link rel="stylesheet" href="memorycard.css" />
+
+    <script src="/static/js/loadfiles.js" defer></script>
+    <script src="/projects/memory-card/memorycard.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div id="main__header"></div>
+
+      <main class="app__container">
+        <aside id="app__layout-left"></aside>
+
+        <section class="app__container-mid">
+          <div class="memory-app">
+            <h1>🐾 Cute Memory Game 🐾</h1>
+            <p class="subtitle">Flip cards to find matching pairs! 💕</p>
+
+            <div class="game-stats">
+              <span>Moves: <span id="js__moves">0</span></span>
+              <span>Matches: <span id="js__matches">0</span>/8</span>
+            </div>
+
+            <!-- This is where all cards will appear -->
+            <div class="board" id="js__board"></div>
+
+            <button class="play-again" id="js__resetBtn">New Game</button>
+            <div class="win-message hidden" id="js__winMessage">
+              🎉 You Won! Perfect Memory! 🥳
+            </div>
+          </div>
+        </section>
+
+        <aside id="app__layout-right"></aside>
+      </main>
+      <br />
+      <div id="main__footer"></div>
+    </div>
+  </body>
+</html>

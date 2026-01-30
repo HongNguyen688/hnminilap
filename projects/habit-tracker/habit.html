@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Habit Tracer</title>
+
+    <link rel="stylesheet" href="/static/css/theme.css" />
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <link rel="stylesheet" href="/static/css/responsive.css" />
+    <link rel="stylesheet" href="habit.css" />
+
+    <script src="/static/js/loadfiles.js" defer></script>
+    <script src="/projects/habit-tracker/habit.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div id="main__header"></div>
+
+      <main class="app__container">
+        <aside id="app__layout-left"></aside>
+
+        <section class="app__container-mid">
+          <div class="habit-tracker">
+            <h1>Habit Tracker</h1>
+            <p class="subtitle">Build streaks. Get better every day.</p>
+
+            <div class="add-habit">
+              <input
+                type="text"
+                id="new-habit"
+                placeholder="What habit do you want to work on?"
+                autocomplete="off"
+              />
+              <button id="add-btn">+</button>
+            </div>
+
+            <div id="js__habitsList"></div>
+
+            <!-- REAL CALENDAR (current year, month navigation) -->
+            <div class="calendar-container">
+              <div class="calendar-header">
+                <button id="js__prev-month">❮</button>
+                <h2 id="js__month-year"></h2>
+                <button id="js__next-month">❯</button>
+              </div>
+              <div class="calendar" id="js__calendar"></div>
+            </div>
+          </div>
+        </section>
+
+        <aside id="app__layout-right"></aside>
+      </main>
+      <br />
+      <div id="main__footer"></div>
+    </div>
+  </body>
+</html>

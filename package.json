@@ -1,0 +1,12 @@
+{
+  "name": "hn-minilab",
+  "version": "1.0.0",
+  "description": "Hong's mini web apps with Gemini proxy",
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@google/genai": "^1.37.0"
+  }
+}

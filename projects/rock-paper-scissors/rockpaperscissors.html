@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ROCK PAPER SCISSORS</title>
+
+    <link rel="stylesheet" href="/static/css/theme.css" />
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <link rel="stylesheet" href="/static/css/responsive.css" />
+    <link rel="stylesheet" href="rockpaperscissors.css" />
+
+    <script src="/static/js/loadfiles.js" defer></script>
+    <script
+      src="/projects/rock-paper-scissors/rockpaperscissors.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <div id="main__header"></div>
+
+      <main class="app__container">
+        <aside id="app__layout-left"></aside>
+
+        <section class="app__container-mid">
+          <div class="rps_container">
+            <h1>ROCK PAPER SCISSORS</h1>
+
+            <div class="score">
+              You: <span id="js__playerScore">0</span> | Computer:
+              <span id="js__computerScore">0</span> | Ties:
+              <span id="js__tieScore">0</span>
+            </div>
+
+            <div class="vs" id="js__vs">VS</div>
+
+            <div class="vs__container">
+              <div class="weapon">
+                <p>😊 Your weapon</p>
+                <div id="js__playerChoice" style="font-size: 5em; margin: 10px">
+                  🤜
+                </div>
+              </div>
+              <div class="weapon">
+                <p>💻 Computer weapon</p>
+                <div
+                  id="js__computerChoice"
+                  style="font-size: 5em; margin: 10px"
+                >
+                  🤛
+                </div>
+              </div>
+            </div>
+
+            <div class="result" id="js__result">Ready to lose? 😏</div>
+            <div class="funny" id="js__funnyMessage"></div>
+
+            <p>Choose your weapon!</p>
+            <div class="choices">
+              <div class="choice" onclick="play('rock')">✊</div>
+              <div class="choice" onclick="play('paper')">✋</div>
+              <div class="choice" onclick="play('scissors')">✌️</div>
+            </div>
+
+            <button class="btn-primary" onclick="reset()">Play Again!</button>
+          </div>
+        </section>
+
+        <aside class="rightside" id="app__layout-right"></aside>
+      </main>
+      <br />
+      <div id="main__footer"></div>
+    </div>
+  </body>
+</html>

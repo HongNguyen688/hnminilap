@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dice Roller</title>
+    <link rel="stylesheet" href="/static/css/theme.css" />
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <link rel="stylesheet" href="/static/css/responsive.css" />
+    <link rel="stylesheet" href="/projects/dice-roller/dice.css" />
+
+
+    <script src="/static/js/loadfiles.js" defer></script>
+    <script src="/projects/dice-roller/dice.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div id="main__header"></div>
+      <main class="app__container">
+        <aside id="app__layout-left"></aside>
+
+        <section class="app__container-mid">
+    
+            <h1>3D Dice Roller</h1>
+
+            <div class="dice__container">
+              <div class="dice">
+                <div class="face front">
+                  <div class="dot center"></div>
+                </div>
+                <div class="face back">
+                  <div class="dot topLeft"></div>
+                  <div class="dot bottomRight"></div>
+                </div>
+                <div class="face top">
+                  <div class="dot topLeft"></div>
+                  <div class="dot center"></div>
+                  <div class="dot bottomRight"></div>
+                </div>
+                <div class="face bottom">
+                  <div class="dot topLeft"></div>
+                  <div class="dot topRight"></div>
+                  <div class="dot bottomLeft"></div>
+                  <div class="dot bottomRight"></div>
+                </div>
+                <div class="face right">
+                  <div class="dot topLeft"></div>
+                  <div class="dot topRight"></div>
+                  <div class="dot center"></div>
+                  <div class="dot bottomLeft"></div>
+                  <div class="dot bottomRight"></div>
+                </div>
+                <div class="face left">
+                  <div class="dot topLeft"></div>
+                  <div class="dot topRight"></div>
+                  <div class="dot centerLeft"></div>
+                  <div class="dot centerRight"></div>
+                  <div class="dot bottomLeft"></div>
+                  <div class="dot bottomRight"></div>
+                </div>
+              </div>
+              <br />
+              <div class="btn__container">
+                <button class="btn-primary" id="js__rollBtn">Roll Dice</button>
+                <button class="btn-primary" id="js__resetBtn">Reset</button>
+              </div>
+            </div>
+          </section>
+
+          <aside id="app__layout-right"></aside>
+        </div>
+      </main>
+      <br />
+      <div id="main__footer"></div>
+    </div>
+
+  </body>
+</html>

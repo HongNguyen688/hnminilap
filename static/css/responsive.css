@@ -1,0 +1,183 @@
+/* ======== Media Queries ========== */
+
+/* ------- Desktop --------- */
+@media (max-width: 1536px) {
+  .container {
+    max-width: 1440px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* ------- Tablet & small laptop --------- */
+
+@media (max-width: 1280px) {
+  .container {
+    max-width: 1124px;
+  }
+
+  /* app container and small card */
+  .app__container {
+    margin-top: 10px;
+    height: auto;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: 1010px;
+  }
+  /* Header */
+  .header__container {
+    flex-wrap: wrap;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .header__search {
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 968px) {
+  .header__container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  /* Each column becomes a full-width row */
+  .header__column--left,
+  .header__column--right {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    gap: 1rem;
+  }
+  .header__search {
+    display: flex;
+    justify-content: right;
+    max-width: 300px;
+  }
+
+  section {
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+  /* small card */
+  .smallcard {
+    width: 9rem;
+    height: 13rem;
+    margin-bottom: 20px;
+  }
+  /* App page – full width single column */
+  .app__container {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+  .app__container-left,
+  .app__container-right {
+    display: none;
+  }
+}
+
+/* Small Tablet */
+@media (max-width: 768px) {
+  .header__container {
+    padding: 0.75rem;
+    gap: 0.75rem;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  /* Header becomes vertical stack */
+  .header__container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header__column--left,
+  .header__column--right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .header__search {
+    max-width: 100%;
+    flex: 1;
+  }
+
+  #nav-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  /* Main page – 2 columns → 1 column */
+  .card__container {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .header__search {
+    max-width: 100%;
+  }
+
+  #searchBar {
+    font-size: 0.95rem;
+    padding: 0.6rem 1rem;
+  }
+
+  #themeToggle {
+    width: 4rem;
+    height: 1.9rem;
+  }
+  .dark-mode #themeToggle::before {
+    transform: translateX(1.9rem);
+  }
+
+  #nav-menu {
+    gap: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  section {
+    margin: 80px 0;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+  .header__container {
+    padding: 0.25rem;
+    gap: 0.25rem;
+  }
+}

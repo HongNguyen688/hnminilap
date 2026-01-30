@@ -1,0 +1,332 @@
+/*@import "static/css/theme.css";
+@import "static/css/responsive.css"; */
+
+/* =====================
+    Header Navigation
+========================= */
+.container {
+  max-width: 1536px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+ul li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+section {
+  margin: 120px 0;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 0.5rem 1rem;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  min-height: 3rem;
+  top: 0;
+  gap: 1.5rem;
+  z-index: 1000;
+  box-shadow: var(--shadow);
+}
+
+.header__column--left,
+.header__column--right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.header__title a {
+  color: var(--primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.header__title a:hover {
+  opacity: 0.8;
+}
+
+/* Search bar */
+.header__search {
+  flex: 1;
+  max-width: 400px;
+}
+.search__container {
+  display: inline-block;
+  position: relative;
+}
+.searchBar {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 4rem;
+  font-size: 0.9rem;
+  background: var(--card);
+  color: var(--text);
+  transition: border 0.3s ease;
+}
+.searchBar:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.clearSearch {
+  display: none; /* hidden by default */
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.6;
+}
+.clearSearch:hover {
+  opacity: 1;
+  color: var(--primary);
+}
+
+/* nav menu */
+#nav-menu {
+  display: flex;
+  gap: 1.5rem;
+}
+
+#nav-menu a {
+  font-weight: 500;
+  color: var(--text);
+  transition: color 0.3s ease;
+}
+#nav-menu a:hover {
+  color: var(--primary);
+}
+
+/* ----- theme toggle button ----- */
+#themeToggle {
+  position: relative;
+  width: 4.5rem;
+  height: 2rem;
+  padding: 0 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 2rem;
+  background: var(--card);
+  color: var(--text);
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+#themeToggle:hover {
+  border-color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 10%, transparent);
+}
+
+#themeToggle::before {
+  content: "";
+  position: absolute;
+  top: 0.25rem;
+  left: 0.25rem;
+  width: 1.38rem;
+  height: 1.38rem;
+  background: var(--primary);
+  border-radius: 50%;
+  transition: transform 0.5s;
+}
+
+#themeToggle .icon-sun,
+#themeToggle .icon-moon {
+  z-index: 2;
+  font-size: 1rem;
+}
+
+/* Default (Light Mode) → Show Sun (now on the right) */
+#themeToggle .icon-sun {
+  opacity: 1;
+  display: block;
+}
+#themeToggle .icon-moon {
+  opacity: 0;
+  display: none;
+}
+
+/* Dark mode toggle */
+.dark-mode #themeToggle::before {
+  transform: translateX(2.3rem);
+}
+
+/* Dark Mode → Show Moon (now on the left) */
+.dark-mode #themeToggle .icon-sun {
+  opacity: 0;
+  display: none;
+}
+.dark-mode #themeToggle .icon-moon {
+  opacity: 1;
+  display: block;
+}
+
+/* =====================
+    Project list
+========================= */
+
+/*---- Main heading ----*/
+.hero {
+  display: block;
+  justify-content: center;
+  text-align: center;
+}
+
+/*---- Card styles ----*/
+.card__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  justify-items: center;
+  gap: 2rem;
+  padding: 2rem 1rem;
+  margin: 0 auto;
+  max-width: 1600px;
+  background: var(--background);
+  border-bottom: 1px solid var(--border);
+  min-height: 3rem;
+  z-index: 1000;
+  box-shadow: var(--shadow);
+}
+.card__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: start;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 380px;
+  width: 280px;
+  height: 380px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.card__content:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(244, 63, 94, 0.28);
+}
+.card__content img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #2e2e2e, #3a3a3a);
+  box-shadow:
+    3px 3px 8px #1a1a1a,
+    -2px 2px 4px #404040;
+}
+
+.card__content:hover img {
+  transform: scale(1.08);
+  box-shadow: 0 16px 32px rgba(244, 63, 94, 0.35);
+}
+
+/* Tên app bên dưới */
+.card__content h3 {
+  color: var(--primary);
+  font-family: "Fredoka", cursive;
+  font-size: 1.4rem;
+  margin-top: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.card__content:hover h3 {
+  color: #f43f5e;
+}
+
+/* Dark mode – vẫn đẹp lung linh luôn */
+.dark-mode .card__content:hover {
+  border-color: #fb7185;
+  box-shadow: 0 24px 48px rgba(251, 113, 133, 0.3);
+}
+
+.dark-mode .card__content img {
+  border-color: #fb7185;
+}
+
+.card__content p {
+  font-size: 1rem;
+  margin-top: 0.75rem;
+  color: var(--text);
+}
+
+/* ===========================
+       Layout App Container 
+============================= */
+.app__container {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: (auto, 1fr);
+  max-width: 100rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+.app__container-mid {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 0px;
+}
+
+.app__container-left,
+.app__container-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0px;
+  gap: 1.5rem;
+}
+
+.smallcard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 180px;
+  width: 10rem;
+  height: 15rem;
+  border: none;
+  margin: 15px 5px;
+}
+.smallcard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* =====================
+      Footer
+========================= */
+
+footer {
+  width: 100%;
+  padding: 20px 8px;
+}
+
+footer .container {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}

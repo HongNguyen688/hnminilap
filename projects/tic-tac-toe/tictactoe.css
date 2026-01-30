@@ -1,0 +1,165 @@
+.tictactoe-funny {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem;
+  text-align: center;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 2rem;
+  font-size: 1.3rem;
+}
+
+.game-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+  color: white;
+  padding: 1rem;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+}
+.reset-btn {
+  background: white;
+  color: #ff6b6b;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* The 3*3 game grid */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal column */
+  gap: 1rem;
+  padding: 1.5rem;
+  background: linear-gradient(145deg, #f0f8ff, #e6f3ff);
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+/* Each square (there are 9) */
+.cell {
+  aspect-ratio: 1; /* Make it perfect square */
+  background: linear-gradient(145deg, #fff, #f0f0f0);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4.5rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* When mouse is over an empty square */
+.cell:hover:not(.filled) {
+  transform: scale(1.08) rotate(5deg);
+  box-shadow: 0 15px 40px rgba(255, 107, 107, 0.3);
+}
+.cell.filled {
+  cursor: default; /* no hang cursor when already filled */
+  transform: scale(1.05);
+}
+.cell.player {
+  color: #ff6b6b;
+  animation: bounceIn 0.6s;
+}
+.cell.ai {
+  color: #4ecdc4;
+  animation: robotShake 0.8s;
+}
+.cell.win {
+  background: linear-gradient(145deg, #2ecc71, #27ae60) !important;
+  color: white;
+  animation: winExplode 0.6s infinite alternate;
+  box-shadow: 0 0 30px #2ecc71 !important;
+}
+
+.ai-taunt {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 20px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  min-height: 3rem;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3) rotate(-180deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1.05) rotate(0);
+    opacity: 1;
+  }
+}
+@keyframes robotShake {
+  0%,
+  100% {
+    transform: scale(1.05) rotate(0);
+  }
+  25% {
+    transform: scale(1.05) rotate(-5deg);
+  }
+  75% {
+    transform: scale(1.05) rotate(5deg);
+  }
+}
+@keyframes winExplode {
+  0% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1.15);
+  }
+}
+
+@media (max-width: 680px) {
+  .board {
+    gap: 0.68rem;
+    padding: 1rem;
+  }
+  .cell {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  .game-stats {
+    flex-direction: column;
+    gap: 7px;
+  }
+  .board {
+    gap: 0.5rem;
+    padding: 0.68rem;
+  }
+  .cell {
+    font-size: 3rem;
+  }
+}
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.7rem;
+    font-weight: 500;
+  }
+}

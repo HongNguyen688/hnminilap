@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coin Flip</title>
+
+    <link rel="stylesheet" href="/static/css/theme.css" />
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <link rel="stylesheet" href="/static/css/responsive.css" />
+    <link rel="stylesheet" href="coin.css" />
+
+    <script src="/static/js/loadfiles.js" defer></script>
+    <script src="/projects/coinflip/coin.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div id="main__header"></div>
+
+      <main class="app__container">
+        <aside id="app__layout-left"></aside>
+
+        <section class="app__container-mid">
+          <h1>🪙 Coin Flip 🪙</h1>
+          <div class="coin" id="coin"></div>
+          <button onclick="flipCoin()">Flip Coin</button>
+          <p id="result"></p>
+        </section>
+
+        <aside id="app__layout-right"></aside>
+      </main>
+      <br />
+      <div id="main__footer"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+
+    <link rel="stylesheet" href="/static/css/theme.css" />
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <link rel="stylesheet" href="/static/css/responsive.css" />
+    <link rel="stylesheet" href="calculator.css" />
+
+    <script src="/static/js/loadfiles.js" defer></script>
+    <script src="/projects/calculator/calculator.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div id="main__header"></div>
+
+      <main class="app__container">
+        <aside id="app__layout-left"></aside>
+
+        <section class="app__container-mid">
+          <h1>Calculator</h1>
+
+          <div class="cal__container">
+            <div class="calculator">
+              <input type="text" class="textInput" id="js_textinput" readonly />
+
+              <div class="cal__frame">
+                <button onclick="clearAll()">AC</button>
+                <button onclick="deletelast()">C</button>
+                <button onclick="btnValue('%')">%</button>
+                <button onclick="btnValue('/')">/</button>
+
+                <button onclick="btnValue('7')">7</button>
+                <button onclick="btnValue('8')">8</button>
+                <button onclick="btnValue('9')">9</button>
+                <button onclick="btnValue('*')">*</button>
+
+                <button onclick="btnValue('4')">4</button>
+                <button onclick="btnValue('5')">5</button>
+                <button onclick="btnValue('6')">6</button>
+                <button onclick="btnValue('-')">-</button>
+
+                <button onclick="btnValue('1')">1</button>
+                <button onclick="btnValue('2')">2</button>
+                <button onclick="btnValue('3')">3</button>
+                <button onclick="btnValue('+')">+</button>
+
+                <button onclick="btnValue('0')">0</button>
+                <button onclick="btnValue('.')">.</button>
+                <button class="equal" onclick="equalBtn()">=</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <aside id="app__layout-right"></aside>
+      </main>
+      <br />
+      <div id="main__footer"></div>
+    </div>
+  </body>
+</html>

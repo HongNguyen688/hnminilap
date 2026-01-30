@@ -1,0 +1,127 @@
+/*-------------------------
+    Dice styles
+---------------------------*/
+.dice__container {
+  text-align: center;
+  perspective: 800px; /*gives 3D effect */
+  margin: 50px 0;
+}
+.dice {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 50px auto;
+  transform-style: preserve-3d; /* enables 3D transformations */
+  transform: rotateX(55deg) rotateY(45deg); /* starting angle */
+  transition: transform 1s ease;
+}
+
+.face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(145deg, #dddbd8, #ffffff);
+  border: 5px solid #f6f3f0;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  justify-items: center;
+  align-items: center;
+  transform-style: preserve-3d;
+}
+
+.face::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #dddbd8, #ffffff);
+  border: 1px solid #f6f3f0;
+  transform: translateZ(-1px);
+}
+
+/* Dot styles */
+.dot {
+  transform: translateZ(2px);
+  display: grid;
+  justify-self: center;
+  width: 20px;
+  height: 20px;
+  background: black;
+  border-radius: 50%;
+  margin: 5px;
+}
+
+/* Dot positions */
+.topLeft {
+  grid-column: 1;
+  grid-row: 1;
+}
+.topRight {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.centerLeft {
+  grid-column: 1;
+  grid-row: 2;
+}
+.center {
+  grid-column: 2;
+  grid-row: 2;
+}
+.centerRight {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.bottomLeft {
+  grid-column: 1;
+  grid-row: 3;
+}
+.bottomRight {
+  grid-column: 3;
+  grid-row: 3;
+}
+
+/* Face positions for 3D dice */
+.front {
+  transform: translateZ(100px);
+}
+.back {
+  transform: rotateX(180deg) translateZ(100px);
+}
+.top {
+  transform: rotateX(90deg) translateZ(100px);
+}
+.bottom {
+  transform: rotateX(-90deg) translateZ(100px);
+}
+.right {
+  transform: rotateY(90deg) translateZ(100px);
+}
+.left {
+  transform: rotateY(-90deg) translateZ(100px);
+}
+/*-------------------------
+    Button styles
+---------------------------*/
+.btn__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 5px;
+  width: 25rem;
+  height: 10rem;
+}
+
+.btn__container button {
+  margin: 10px;
+  width: 150px;
+  height: 50px;
+}

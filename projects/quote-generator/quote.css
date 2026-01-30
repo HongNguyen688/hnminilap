@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap");
+
+.quote-app {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.quote-card {
+  background: white;
+  padding: 3rem;
+  border-radius: 32px;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  width: 100%;
+  max-width: 580px;
+  animation: fadeIn 0.8s ease-out;
+}
+h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.8rem;
+  margin: 0 0 2rem;
+  color: #2d3436;
+}
+.quote-text {
+  font-size: 1.9rem;
+  line-height: 1.5;
+  margin: 2rem 0;
+  font-family: "Inter", sans-serif;
+  color: #2d3436;
+  min-height: 120px;
+}
+.quote-author {
+  font-size: 1.4rem;
+  color: #636e72;
+  font-weight: 600;
+  margin: 1.5rem 0;
+}
+
+.big-btn {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  padding: 1.2rem 3rem;
+  border-radius: 50px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 2rem 0;
+  transition: all 0.3s;
+}
+.big-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+}
+
+.share-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 2rem 0;
+}
+.share-buttons button {
+  padding: 0.8rem 1.8rem;
+  border: 2px solid #ddd;
+  background: white;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.share-buttons button:hover {
+  background: #f1f2f6;
+}
+
+.stats {
+  margin-top: 2rem;
+  color: #636e72;
+  font-size: 1.1rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

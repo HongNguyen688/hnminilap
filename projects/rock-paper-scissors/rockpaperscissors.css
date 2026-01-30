@@ -1,0 +1,194 @@
+.rps_container {
+  width: 100%;
+  max-width: none;
+  margin: 0 auto;
+  padding: 2rem;
+  padding-inline: max(
+    2rem,
+    env(safe-area-inset-left, 2rem)
+  ); /* extra safe space on phones with notch/rounded corners */
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  min-height: 90vh;
+}
+
+/* Title */
+h1 {
+  font-size: 2.8rem;
+  margin: 0 0 20px 0;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+/* Battle Area – Player vs Computer */
+.vs__container {
+  display: flex;
+  flex-direction: row; /* mobile = column */
+  justify-content: center;
+  align-items: center;
+  gap: 15px; /* space between player / VS / computer */
+  margin: 10px 0;
+  width: 100%;
+  max-width: none;
+  margin: 10px auto;
+}
+
+.weapon {
+  font-size: 1.5rem;
+  min-height: 100px;
+  text-align: center;
+}
+
+.vs {
+  font-size: 2.5rem;
+  color: #ff6b6b;
+  font-weight: bold;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.score {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 10px 0;
+  gap: 8px;
+}
+
+.result {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  min-height: 60px;
+  margin: 10px 0;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+.funny {
+  font-size: 1.3rem;
+  color: #ffeb3b;
+  font-style: italic;
+  min-height: 30px;
+  text-align: center;
+}
+
+/* Choices – Rock Paper Scissors Buttons */
+.choices {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin: 20px 0;
+}
+
+.choice {
+  font-size: 4.5rem;
+  padding: 20px;
+  background: white;
+  border-radius: 28px;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.choice:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+}
+
+.choice:active {
+  transform: scale(0.9);
+}
+
+/* Reset Button */
+.btn-primary {
+  padding: 12px 30px;
+  font-size: 1.2rem;
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 10px;
+  box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
+}
+
+.btn-primary:hover {
+  background: #ff5252;
+  transform: translateY(-3px);
+}
+
+/* =============== RESPONSIVE BREAKPOINTS =============== */
+
+/* Large Desktop */
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 3.8rem;
+  }
+  .choice {
+    font-size: 5.5rem;
+  }
+  .choices {
+    gap: 40px;
+  }
+}
+
+/* Tablet & Up – Side by side layout */
+@media (min-width: 768px) {
+  .vs__container {
+    flex-direction: row;
+    gap: 40px;
+  }
+  h1 {
+    font-size: 3.2rem;
+  }
+
+  .vs {
+    font-size: 4.5rem;
+  }
+  .score {
+    font-size: 1.2rem;
+    gap: 5px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2.3rem;
+  }
+  .vs {
+    font-size: 2.8rem;
+  }
+  .weapon {
+    font-size: 0.8rem;
+  }
+  .result {
+    font-size: 1.7rem;
+  }
+  .choice {
+    font-size: 2.8rem;
+    padding: 10px;
+  }
+  .choices {
+    gap: 10px;
+  }
+  .score {
+    font-size: 0.9rem;
+  }
+}

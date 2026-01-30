@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/static/images/web-app-icon.svg"
+    />
+    <title>Mini-Web-App</title>
+
+    <link rel="stylesheet" href="/static/css/theme.css" />
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <link rel="stylesheet" href="/static/css/responsive.css" />
+    <link rel="stylesheet" href="/static/css/hn-twin.css" />
+
+    <!--  defer mean Don’t block HTML, wait until DOM is ready, then run in order.-->
+    <script src="./static/js/loadfiles.js" defer></script>
+    <script type="module" src="./static/js/hn-twin.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header loading -->
+      <div id="main__header"></div>
+
+      <main class="app__container" id="main__content">
+        <!-- Project list -->
+        <section id="home" class="hero">
+          <h1><span>Mini Projects.</span> <span>Big Ideas.</span></h1>
+          <!-- Main heading -->
+          <p>
+            Dive into my growing collection of interactive web apps — each built
+            to learn, play, or inspire.
+          </p>
+        </section>
+
+        <!-- Utility section -->
+        <section id="utility">
+          <h2>Utility</h2>
+          <!-- Heading for the utility section -->
+          <div class="card__container">
+            <!-- Individual  blocks -->
+            <a
+              href="../projects/calculator/calculator.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="card__content">
+                <h3>Calculator</h3>
+                <div>
+                  <img
+                    src="/static/images/calculator.png"
+                    alt="Calculator Preview"
+                  />
+                </div>
+
+                <div>
+                  <p>Easy life with Calculator.</p>
+                </div>
+              </div>
+            </a>
+
+            <a
+              href="../projects/pomodoro/pomodoro.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="card__content">
+                <h3>Pomodoro & Task</h3>
+                <div>
+                  <img
+                    src="/static/images/pomodoro.png"
+                    alt="Pomodoro Preview"
+                  />
+                </div>
+
+                <div>
+                  <p>Let's create your task and do it together.</p>
+                </div>
+              </div>
+            </a>
+
+            <a
+              href="../projects/habit-tracker/habit.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="card__content">
+                <h3>Habit Tracker</h3>
+                <div>
+                  <img src="/static/images/habit.png" alt="Habit Preview" />
+                </div>
+
+                <div>
+                  <p>Together build your good habits.</p>
+                </div>
+              </div>
+            </a>
+
+            <a
+              href="../projects/quote-generator/quote.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="card__content">
+                <h3>Quote</h3>
+                <div>
+                  <img src="/static/images/quote.png" alt="Quote Preview" />
+                </div>
+
+                <div>
+                  <p>Daily Inspiration.</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <!-- Game section -->
+        <section id="game">
+          <h2>Game</h2>
+          <!-- Heading for the game section -->
+          <div class="card__container">
+            <!-- Individual  blocks -->
+            <a
+              href="../projects/rock-paper-scissors/rockpaperscissors.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="card__content">
+                <h3>Rock-Paper-Scissors</h3>
+                <div>
+                  <img src="/static/images/rps.png" alt="Rock Paper Scissors" />
+                </div>
+
+                <div>
+                  <p>Who will be winner?</p>
+                </div>
+              </div>
+            </a>
+
+            <a
+              href="../projects/dice-roller/dice.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="card__content">
+                <h3>Dice Roller</h3>
+                <div>
+                  <img src="/static/images/dice.png" alt="Dice Preview" />
+                </div>
+
+                <div>
+                  <p>Click to roll 🎲</p>
+                </div>
+              </div>
+            </a>
+
+            <a
+              href="../projects/memory-card/memorycard.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="card__content">
+                <h3>Memory Cards</h3>
+                <div>
+                  <img
+                    src="/static/images/memorycards.png"
+                    alt="Memory Cards"
+                  />
+                </div>
+
+                <div>
+                  <p>Cute animals memorycards.</p>
+                </div>
+              </div>
+            </a>
+
+            <a
+              href="../projects/tic-tac-toe/tictactoe.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="card__content">
+                <h3>Tic Tac Toe</h3>
+                <div>
+                  <img
+                    src="/static/images/tictactoe.png"
+                    alt="Tic Tac Toe Preview"
+                  />
+                </div>
+
+                <div>
+                  <p>Battle with the unbeatable robot!</p>
+                </div>
+              </div>
+            </a>
+
+            <a
+              href="../projects/coinflip/coin.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="card__content">
+                <h3>Coin Flip</h3>
+                <div>
+                  <img src="/static/images/coinflip.png" alt="Coin Preview" />
+                </div>
+
+                <div>
+                  <p>Head or Tail?</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <!-- Floating avatar button -->
+      <!-- Cute floating label -->
+      <div class="twin-label" id="js__twin-label">
+        <div class="label-bubble">
+          <div class="label-text">
+            <span class="line1">Hey! chat with</span>
+            <span class="line2">hong nguyen - twin</span>
+          </div>
+          <div class="label-tail"></div>
+        </div>
+      </div>
+      <button
+        id="js__twin-button"
+        class="floating-twin-btn"
+        title="Talk to Hong Nguyen-twin"
+      >
+        <img
+          src="static/images/hn_avatar.png"
+          alt="Hong twin avatar"
+          class="twin-avatar"
+        />
+      </button>
+
+      <!-- FULL Chat widget -->
+      <div id="js__twin-chat" class="twin-chat-widget">
+        <div class="chat-header">
+          <img
+            src="static/images/hn_avatar.png"
+            alt="Hong"
+            class="header-avatar"
+          />
+          <div class="header-title">
+            <h3>Hong Nguyen-twin</h3>
+            <small>Have a nice day!</small>
+          </div>
+          <button id="js__close-chat" class="close-btn">×</button>
+        </div>
+
+        <div id="js__chat-body" class="chat-body"></div>
+
+        <div class="chat-input-row">
+          <textarea
+            id="js__user-input"
+            class="user-input"
+            type="text"
+            placeholder="Ask me anything..."
+            autocomplete="off"
+          ></textarea>
+          <button id="js__send-user-msg" class="send-user-btn">➤</button>
+        </div>
+      </div>
+
+      <!-- Footer loading -->
+      <div id="main__footer"></div>
+    </div>
+  </body>
+</html>

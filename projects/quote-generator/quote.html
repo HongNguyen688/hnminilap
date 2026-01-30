@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quote</title>
+
+    <link rel="stylesheet" href="/static/css/theme.css" />
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <link rel="stylesheet" href="/static/css/responsive.css" />
+    <link rel="stylesheet" href="quote.css" />
+
+    <script src="/static/js/loadfiles.js" defer></script>
+    <script src="/projects/quote-generator/quote.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div id="main__header"></div>
+
+      <main class="app__container">
+        <aside id="app__layout-left"></aside>
+
+        <section class="app__container-mid">
+          <div class="quote-app">
+            <div class="quote-card">
+              <h1>Daily Inspiration</h1>
+              <div class="quote-text" id="js__quote">
+                Click below for your quote
+              </div>
+              <div class="quote-author" id="js__author">—</div>
+
+              <button id="js__newQuote" class="big-btn">New Quote</button>
+
+              <div class="share-buttons">
+                <button id="js__copyQuote">Copy</button>
+                <button id="js__shareQuote">Share</button>
+              </div>
+
+              <!-- <div class="stats">
+                <span
+                  >You've seen <strong id="js__count">0</strong> quotes
+                  today</span
+                >
+              </div> -->
+            </div>
+          </div>
+        </section>
+
+        <aside id="app__layout-right"></aside>
+      </main>
+      <br />
+      <div id="main__footer"></div>
+    </div>
+  </body>
+</html>

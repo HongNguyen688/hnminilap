@@ -1,0 +1,202 @@
+/* ===== GOOGLE FONT ===== */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap");
+
+/* ===== MAIN CONTAINER ===== */
+
+.habit-tracker {
+  margin: 0 auto;
+  padding: 1.5rem;
+  font-family: "Outfit", sans-serif;
+
+  /* Background color */
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+
+  border-radius: 20px;
+  min-height: 100vh;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+
+  width: 100%;
+  max-width: 900px; /* keeps it nice on large screens */
+}
+
+/* ===== HEADERS ===== */
+h1,
+h2 {
+  text-align: center;
+  color: #fff;
+}
+
+/* ===== SUBTITLE ===== */
+.subtitle {
+  text-align: center;
+  opacity: 0.9;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+/* ===== ADD HABIT SECTION ===== */
+.add-habit {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+/* Input */
+#new-habit {
+  flex: 1;
+  padding: 0.9rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 14px;
+}
+
+/* Add button */
+#add-btn {
+  min-width: 56px;
+  background: #fff;
+  color: #667eea;
+  border: none;
+  border-radius: 14px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ===== HABIT ITEM ===== */
+.habit-item {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 16px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Habit name */
+.habit-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Streak section */
+.streak {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+/* ===== CALENDAR ===== */
+.calendar-container {
+  margin-top: 3rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 1rem;
+}
+
+/* Calendar header */
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.calendar-header button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+/* Calendar grid */
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  justify-items: center;
+  gap: 6px;
+  text-align: center;
+}
+
+/* Day name */
+.day-name {
+  width: 36px;
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+/* Day cell */
+.day {
+  width: 36px;
+  height: 36px;
+
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Today */
+.day.today {
+  background: #fff !important;
+  color: #1d1f23;
+  font-weight: bold;
+}
+
+/* Completed day */
+.day.done {
+  background: #e11d48 !important;
+  color: #fff;
+}
+
+/* Empty day */
+.day.empty {
+  background: transparent !important;
+}
+
+/* ===== MOBILE FIXES ===== */
+@media (max-width: 600px) {
+  .habit-tracker {
+    padding: 5px;
+    border-radius: 12px;
+  }
+
+  .add-habit {
+    flex-direction: column;
+  }
+
+  #add-btn {
+    width: 100%;
+  }
+
+  .habit-item {
+    /* flex-direction: column; */
+    align-items: flex-start;
+  }
+
+  .streak {
+    align-self: flex-end;
+  }
+
+  .calendar {
+    gap: 4px;
+  }
+  .day {
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
+  }
+}
