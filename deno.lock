@@ -11,7 +11,7 @@
   "workspace": {
     "packageJson": {
       "dependencies": [
-        "npm:@google/genai@^1.37.0"
+        "npm:@google/genai@^1.38.0"
       ]
     }
   }
