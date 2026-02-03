@@ -1,4 +1,6 @@
-/* Floating label */
+/*==================
+ 1. Floating label 
+ ==================*/
 .twin-label {
   position: fixed;
   bottom: 100px;
@@ -7,68 +9,17 @@
   z-index: 9997;
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeInUp 1.2s ease-out 1.5s forwards;
 }
 
-/* First appearance: fade in after page load */
-.twin-label.fade-in {
+/* label appearance */
+.twin-label.fade-in,
+.twin-label.fade-in-2 {
   animation: fadeInUp 1.2s ease-out forwards;
 }
 
 /* Fade out after ~8 seconds */
 .twin-label.fade-out {
   animation: fadeOut 1s ease-out forwards;
-}
-
-/* Second appearance: fade in again after 60 seconds total delay */
-.twin-label.fade-in-2 {
-  animation: fadeInUp 1.2s ease-out forwards;
-}
-
-.label-bubble {
-  background: linear-gradient(135deg, #fff0f5, #ffe4f0);
-  border: 2px solid #f72585;
-  border-radius: 16px;
-  padding: 12px 18px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  color: #2d1b3d;
-  box-shadow: 0 6px 20px rgba(247, 37, 133, 0.25);
-  position: relative;
-  text-align: center;
-  min-width: 160px; /* adjust if you want wider/narrower */
-}
-
-.label-text {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  line-height: 1.3;
-}
-
-.line1 {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #f72585; /* magenta for emphasis */
-}
-
-.line2 {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: #2d1b3d;
-  margin-top: 2px;
-  white-space: nowrap;
-}
-
-.label-tail {
-  position: absolute;
-  bottom: -10px;
-  right: 5px;
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 12px solid #f72585;
 }
 
 @keyframes fadeInUp {
@@ -82,11 +33,6 @@
   }
 }
 
-/* Optional: fade out after a few seconds */
-/* .twin-label.fade-out {
-        animation: fadeOut 8s ease-out forwards 30s;
-      } */
-
 @keyframes fadeOut {
   0% {
     opacity: 1;
@@ -97,7 +43,57 @@
   }
 }
 
-/* Floating button */
+.label-bubble {
+  background: linear-gradient(135deg, #fff0f5, #ffe4f0);
+  border: 2px solid #f72585;
+  border-radius: 16px;
+  padding: 12px 18px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: #2d1b3d;
+  box-shadow: 0 6px 20px rgba(247, 37, 133, 0.25);
+  position: relative;
+  text-align: center;
+  min-width: 160px;
+}
+
+/* Text inside the bubble*/
+.label-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.3;
+}
+
+.line1 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #f72585;
+}
+
+.line2 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #2d1b3d;
+  margin-top: 2px;
+  white-space: nowrap; /* Keeps text in one line */
+}
+
+/* Tail of the label bubble */
+.label-tail {
+  position: absolute;
+  bottom: -10px;
+  right: 5px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 12px solid #f72585;
+}
+
+/*====================
+  2. Floating button
+====================== */
 .floating-twin-btn {
   position: fixed;
   bottom: 24px;
@@ -111,10 +107,11 @@
   overflow: hidden;
   cursor: pointer;
   z-index: 9999;
-  transition: all 0.3s ease;
-  animation: gentlePulse 3s infinite ease-in-out;
+  transition: all 0.3s ease; /* always on top */
+  animation: gentlePulse 3s infinite ease-in-out; /* smooth changes */
 }
 
+/* Gentle pulse animation */
 @keyframes gentlePulse {
   0%,
   100% {
@@ -133,19 +130,35 @@
   box-shadow: 0 16px 40px rgba(247, 37, 133, 0.6);
 }
 
+/*-------------------------------
+  Avatar image inside the button 
+----------------------------------*/
 .twin-avatar {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+/* ---------------------------------------
+   Hide floating button when chat is open
+------------------------------------------- */
+.hidden-when-chat-open {
+  display: none !important;
+}
 
-/* Chat panel */
+/*================
+  3. Chat box 
+=================*/
 .twin-chat-widget {
   position: fixed;
-  bottom: 110px;
+  bottom: 24px;
   right: 24px;
   width: 360px;
   height: 520px;
+  /* New: */
+  height: calc(
+    100dvh - 110px
+  ); /* better height for phones (keyboard friendly) */
+  max-height: 520px;
   background: var(--card);
   border-radius: 0.68rem;
   box-shadow: var(--shadow);
@@ -160,6 +173,7 @@
   display: flex;
 }
 
+/* Header with avatar, name, close button*/
 .chat-header {
   background: linear-gradient(135deg, var(--primary), #c8075f);
   color: white;
@@ -183,10 +197,6 @@
 
 .header-title {
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: left;
 }
 .header-title h3 {
   margin: 0;
@@ -199,9 +209,9 @@
 .header-title small {
   font-size: 0.85rem;
   opacity: 0.85;
-  /* display: block; */
 }
 
+/* Close button (X) */
 .close-btn {
   position: absolute;
   top: 12px;
@@ -221,27 +231,35 @@
   background: rgba(255, 255, 255, 0.5);
 }
 
+/* Where messages are displayed */
 .chat-body {
-  flex: 1;
+  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   padding: 0.5rem;
   background: white;
   overflow-y: auto;
   margin: 8px;
+  -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
 }
+
+/* Input row at the bottom */
 .chat-input-row {
   display: flex;
-  padding: 12px;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
   border-top: 1px solid var(--border);
   background: #f5f5f5;
   width: 100%;
+  flex-shrink: 0;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 .user-input {
   flex: 1;
   padding: 12px 16px;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  /* border-radius: 8px; */
   font-size: 0.8rem;
   background: white;
   color: #333333;
@@ -254,12 +272,12 @@
 }
 
 .send-user-btn {
-  margin-left: 8px;
+  margin: 0 5px;
   background: #4caf50;
   color: white;
-  padding: 10px 14px;
+  padding: 14px;
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
   transition: background 0.2s ease;
 }
 .send-user-btn:hover {
@@ -290,4 +308,142 @@
   background: #f1f1f1;
   color: #333;
   border-bottom-left-radius: 4px;
+}
+
+/* ====================
+   RESPONSIVE RULES
+====================== */
+@media (max-width: 768px) {
+  /* Smaller chat panel on tablets & phones */
+  .twin-chat-widget {
+    width: 340px;
+    height: 480px;
+    bottom: 90px;
+    right: 16px;
+  }
+
+  .floating-twin-btn {
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .twin-label {
+    bottom: 90px;
+    right: 16px;
+    min-width: 140px;
+  }
+
+  .label-bubble {
+    padding: 10px 14px;
+    font-size: 0.92rem;
+  }
+
+  .header-avatar {
+    width: 54px;
+    height: 54px;
+    min-width: 54px;
+  }
+
+  .chat-body {
+    margin: 6px;
+  }
+  .twin-chat-widget.visible {
+    /* Nearly full screen — gives space for keyboard + messages + input */
+    width: calc(100% - 32px);
+    height: calc(100dvh - 90px - env(safe-area-inset-bottom));
+    max-height: 85dvh; /* prevents being ridiculously tall when keyboard closed */
+    bottom: calc(16px + env(safe-area-inset-bottom));
+    left: 16px;
+    right: 16px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Phones and small screens */
+@media (max-width: 600px) {
+  .chat-body {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 8px;
+  }
+
+  .chat-input-row {
+    padding: 12px;
+    padding-bottom: calc(12px + env(safe-area-inset-bottom));
+  }
+
+  .floating-twin-btn {
+    bottom: calc(16px + env(safe-area-inset-bottom));
+    right: 16px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .twin-label {
+    bottom: calc(90px + env(safe-area-inset-bottom));
+    right: 16px;
+    max-width: 80vw;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Almost full-screen on phones */
+  .twin-chat-widget {
+    width: calc(100% - 32px);
+    height: calc(100vh - 100px - env(safe-area-inset-bottom));
+    max-height: 620px;
+    bottom: calc(80px + env(safe-area-inset-bottom));
+    right: 16px;
+    left: 16px;
+    border-radius: 16px;
+  }
+
+  .floating-twin-btn {
+    width: 56px;
+    height: 56px;
+    bottom: calc(16px + env(safe-area-inset-bottom));
+    right: 16px;
+  }
+
+  .twin-label {
+    bottom: calc(90px + env(safe-area-inset-bottom));
+    right: 16px;
+    max-width: 78vw;
+  }
+
+  .chat-header {
+    padding: 12px 14px;
+  }
+
+  .header-title h3 {
+    font-size: 1.15rem;
+  }
+
+  .message-content {
+    font-size: 0.78rem;
+    padding: 9px 12px;
+  }
+
+  .chat-input-row {
+    padding: 10px;
+  }
+
+  .user-input {
+    font-size: 0.78rem;
+    padding: 10px 14px;
+  }
+}
+
+/* Optional: better safe-area handling for iPhones */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .floating-twin-btn {
+    margin-bottom: env(safe-area-inset-bottom);
+  }
+  .twin-chat-widget {
+    margin-bottom: env(safe-area-inset-bottom);
+  }
 }

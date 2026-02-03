@@ -1,120 +1,167 @@
-let chatSession;
-
-document.addEventListener("DOMContentLoaded", async () => {
-  const avatarButton = document.getElementById("js__twin-button");
+document.addEventListener("DOMContentLoaded", () => {
+  const avatarBtn = document.getElementById("js__twin-button");
   const chatBox = document.getElementById("js__twin-chat");
   const closeBtn = document.getElementById("js__close-chat");
-  const messages = document.getElementById("js__chat-body");
-  const input = document.getElementById("js__user-input");
+  const messagesArea = document.getElementById("js__chat-body");
+  const userInput = document.getElementById("js__user-input");
   const sendBtn = document.getElementById("js__send-user-msg");
-  const label = document.getElementById("js__twin-label");
+  const floatLabel = document.getElementById("js__twin-label");
 
+  //Save whole chat history
   window.chatHistory = [
     {
       role: "model",
       content:
-        "Hi! I'm Hong Nguyen-twin 🌸 Ask me anything about Hong Nguyen! 😊",
+        "Hi! I\'m Hong Nguyen - Twin 🌹 Ask me anything about Hong Nguyen! 😊",
     },
   ];
 
-  let hasUserOpenedChat = false;
+  let chatOpen = false;
 
-  //Floating label animation
-  function showAndHIdeLabel() {
-    if (hasUserOpenedChat || !label) return;
+  // Function make the float label appear and disappear
+  function showAndHideLabel() {
+    if (chatOpen || !floatLabel) return;
 
-    label.classList.remove("fade-out");
-    label.classList.add("fade-in-1");
+    // Remove old fade-out and add fade-in
+    floatLabel.classList.remove("fade-out");
+    floatLabel.classList.add("fade-in-2");
 
+    // After 8.8 seconds -> fade out
     setTimeout(() => {
-      if (hasUserOpenedChat || !label) return;
-      label.classList.remove("fade-in-1");
-      label.classList.add("fade-out");
-      setTimeout(showAndHIdeLabel, 25000);
+      if (chatOpen || !floatLabel) return;
+      floatLabel.classList.remove("fade-in-2");
+      floatLabel.classList.add("fade-out");
+
+      //After fade out finishes -> wait 25 seconds and show again
+      setTimeout(showAndHideLabel, 25000); //1000 ms = 1 second
     }, 8800);
   }
 
-  // UI Logic
-  function addMessage(text, isUser = false) {
-    if (!messages) return;
-    const div = document.createElement("div");
-    div.className = `message-content ${
-      isUser ? "user-message" : "twin-message"
-    }`;
-    div.textContent = text;
-    messages.appendChild(div);
-    messages.scrollTop = messages.scrollHeight;
+  //Add message to chat body
+  function addMessage(text, isFromUser = false) {
+    if (!messagesArea) return;
+    const msgDiv = document.createElement("div");
+
+    if (isFromUser) {
+      msgDiv.className = "message-content user-message";
+    } else {
+      msgDiv.className = "message-content twin-message";
+    }
+    msgDiv.textContent = text;
+    messagesArea.appendChild(msgDiv);
+    messagesArea.scrollTop = messagesArea.scrollHeight;
   }
 
+  // Send message and show reply
   async function sendMessage() {
-    const text = input.value.trim();
-    if (!text) return;
+    const userMsg = userInput.value.trim();
+    //don't send empty messages
+    if (!userMsg) return;
 
-    addMessage(text, true);
-    input.value = "";
+    //Show what user sent
+    addMessage(userMsg, true);
 
-    // Keep your own history in the browser (simple array)
-    window.chatHistory = window.chatHistory || [];
-    window.chatHistory.push({ role: "user", content: text });
+    //Clear the input box
+    userInput.value = "";
+
+    //Remember what user said
+    window.chatHistory.push({ role: "user", content: userMsg });
 
     try {
-      const res = await fetch("/.netlify/functions/gemini-chat", {
+      //Send the message to the server
+      const response = await fetch("/.netlify/functions/gemini-chat", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({ messages: window.chatHistory }),
       });
 
-      if (!res.ok) {
-        throw new Error(`HTTP ${res.status}`);
+      if (!response.ok) {
+        throw new Error("Server Problem");
       }
 
-      const { reply } = await res.json();
+      const data = await response.json();
+      const twinReply = data.reply;
 
-      addMessage(reply);
-      window.chatHistory.push({ role: "model", content: reply });
-    } catch (err) {
-      console.error(err);
-      addMessage("Oops... connection issue 😅 Please try again.");
+      //Show hn-twin's reply
+      addMessage(twinReply);
+
+      //Remember hn-twin's reply
+      window.chatHistory.push({ role: "model", content: twinReply });
+    } catch (error) {
+      console.error("Error:", error);
+      addMessage("Sorry, something went wrong. Please try again later.");
     }
   }
 
-  // Event Listeners
-  if (avatarButton) {
-    avatarButton.onclick = () => {
+  // action when avatar button is clicked.
+  // Chat box -> visible
+  // Avatar button + label -> hidden
+  if (avatarBtn) {
+    avatarBtn.onclick = () => {
+      //check if chat box is already open
+      const isVisible = !chatOpen;
+
+      //open chat box
       chatBox.classList.toggle("visible");
-      hasUserOpenedChat = chatBox.classList.contains("visible");
-      if (hasUserOpenedChat && messages.children.length === 0) {
+
+      //Hide avatar button + label when chat box is opened
+      avatarBtn.classList.toggle("hidden-when-chat-open", isVisible);
+      if (floatLabel) {
+        floatLabel.classList.toggle("hidden-when-chat-open", isVisible);
+      }
+      chatOpen = isVisible;
+
+      if (isVisible && messagesArea.children.length === 0) {
         addMessage(
-          "Hi! I'm HongNguyen-twin 🌸 Ask me anything about Hong Nguyen! 😊",
+          "Hi! I'm Hong Nguyen - Twin 🌹 Ask me anything about Hong Nguyen! 😊",
         );
       }
 
-      if (hasUserOpenedChat && label) {
-        label.classList.remove("fade-in-1");
-        label.classList.add("fade-out");
+      //Focus on the text input when chat box is opened
+      if (userInput) {
+        userInput.focus();
       }
-
-      if (input) input.focus();
     };
   }
 
-  if (closeBtn) closeBtn.onclick = () => chatBox.classList.remove("visible");
-  if (sendBtn) sendBtn.onclick = sendMessage;
-  if (input) {
-    input.onkeydown = (e) => {
-      if (e.isComposing) {
-        return;
-      }
+  // action when close button is clicked
+  // Chat box -> hidden
+  // Avatar button + label -> visible
+  if (closeBtn) {
+    closeBtn.onclick = () => {
+      //hide chat box
+      chatBox.classList.remove("visible");
 
-      if (e.key === "Enter") {
-        e.preventDefault(); // This stops the "double" action immediately
+      //show avatar button and label again
+      avatarBtn.classList.remove("hidden-when-chat-open");
+      if (floatLabel) {
+        floatLabel.classList.remove("hidden-when-chat-open");
+      }
+      chatOpen = false;
+    };
+  }
+
+  // action when send button is clicked
+  if (sendBtn) {
+    sendBtn.onclick = sendMessage;
+  }
+
+  // action when enter key is pressed in the text box
+  if (userInput) {
+    userInput.onkeydown = (event) => {
+      // Ignore if user is typing emoji or special characters
+      if (event.isComposing) return;
+
+      if (event.key === "Enter") {
+        event.preventDefault(); // don't make new line
         sendMessage();
       }
     };
   }
-  // ───────────────────────────────
-  if (label) {
-    // Wait 1.2 seconds before first appearance (looks more natural)
-    setTimeout(showAndHIdeLabel, 1200);
+  //Start the float label after 1.2 seconds
+  if (floatLabel) {
+    setTimeout(showAndHideLabel, 1200);
   }
 });
