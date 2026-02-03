@@ -100,26 +100,24 @@ document.addEventListener("DOMContentLoaded", () => {
   // Avatar button + label -> hidden
   if (avatarBtn) {
     avatarBtn.onclick = () => {
-      //check if chat box is already open
-      const isVisible = !chatOpen;
+      // 1. Open the chat box
+      chatBox.classList.add("visible");
+      chatOpen = true;
 
-      //open chat box
-      chatBox.classList.toggle("visible");
-
-      //Hide avatar button + label when chat box is opened
-      avatarBtn.classList.toggle("hidden-when-chat-open", isVisible);
+      // 2. Hide the button and label
+      avatarBtn.classList.add("hidden-when-chat-open");
       if (floatLabel) {
-        floatLabel.classList.toggle("hidden-when-chat-open", isVisible);
+        floatLabel.classList.add("hidden-when-chat-open");
       }
-      chatOpen = isVisible;
 
-      if (isVisible && messagesArea.children.length === 0) {
+      // 3. Add welcome message if empty
+      if (messagesArea.children.length === 0) {
         addMessage(
           "Hi! I'm Hong Nguyen - Twin 🌹 Ask me anything about Hong Nguyen! 😊",
         );
       }
 
-      //Focus on the text input when chat box is opened
+      // 4. Focus input
       if (userInput) {
         userInput.focus();
       }
